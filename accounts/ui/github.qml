@@ -24,7 +24,8 @@ AccountCreationAgent {
         _accountSetup.error.connect(function() {
             //: Error which is displayed when the user attempts to create a duplicate GitHub account
             //% "You have already added a GitHub account for user %1."
-            var duplicateAccountError = qsTrId("jolla_settings_accounts_extensions-la-github_duplicate_account").arg(root._existingUserName)
+            //var duplicateAccountError = qsTrId("jolla_settings_accounts_extensions-la-github_duplicate_account").arg(root._existingUserName)
+            var duplicateAccountError = "You have already added a GitHub account for user %1."
             accountCreationError(duplicateAccountError)
             _oauthPage.done(false, AccountFactory.BadParametersError, duplicateAccountError)
         })
@@ -41,11 +42,13 @@ AccountCreationAgent {
     initialPage: AccountCreationLegaleseDialog {
         //: The text explaining how user's data will be backed up to GitHub
         //% "Adding a GitHub account on your device means that you agree to GitHub's Terms of Service."
-        legaleseText: qsTrId("jolla_settings_accounts_extensions-la-github-consent_text")
+        //legaleseText: qsTrId("jolla_settings_accounts_extensions-la-github-consent_text")
+        legaleseText: "Adding a GitHub account on your device means that you agree to GitHub's Terms of Service."
 
         //: Button which the user presses to view GitHub Terms Of Service webpage
         //% "GitHub Terms of Service"
-        externalUrlText: qsTrId("jolla_settings_accounts_extensions-bt-github_terms")
+        //externalUrlText: qsTrId("jolla_settings_accounts_extensions-bt-github_terms")
+        externalUrlText: "GitHub Terms of Service"
         externalUrlLink: "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service"
 
         onStatusChanged: {
