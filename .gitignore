@@ -1,0 +1,5 @@
+Makefile
+*.list
+build.log
+icons/z*?.
+z?.*

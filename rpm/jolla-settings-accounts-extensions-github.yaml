@@ -1,0 +1,76 @@
+Name: jolla-settings-accounts-extensions-github
+Summary: Extension plugin for GitHub accounts
+Version: 0.1.1
+Release: 0
+Group: Applications
+License: ASL 2.0
+URL: https://github.com/nephros/%{name}
+SCM: https://github.com/nephros/%{name}
+Sources:
+    - '%{name}-%{version}.tar.gz'
+Description: |
+    ${summary}.
+
+#    %if "%{?vendor}" == "chum"
+#    Title: Template Application
+#    Type: desktop-application
+#    DeveloperName: Peter G.
+#    DeveloperLogin: nephros
+#    PackagedBy: nephros
+#    Categories:
+#     - Files
+#    Custom:
+#      Repo: %{url}
+#    PackageIcon: %{url}/master/icons/%{name}.svg
+#    Screenshots:
+#     - %{url}/raw/metadata/screenshots/screenshot1.png
+#     - %{url}/raw/metadata/screenshots/screenshot2.png
+#     - %{url}/raw/metadata/screenshots/screenshot3.png
+#    Links:
+#      Homepage: %{url}
+#      Help: %{url}/discussions
+#      Bugtracker: %{url}/issues
+#      Donation: https://openrepos.net/donate
+#    %endif
+
+#SetupOptions: -q -n %{name}-%{version}/upstream
+RpmLintIgnore:
+  - 'summary-too-long'
+  - 'no-changelogname-tag'
+  - 'invalid-url'
+  - 'desktopfile-without-binary'
+  - 'explicit-lib-dependency'
+#Macros:
+#  - '__cmake_in_source_build;OFF'
+#  - 'foo;bar'
+#  - |
+#    spectacle_bug; hack_fix
+#    # Spectacular spectacle hack:
+#    #   abuse Macros to work around the Macro-deleting bug in 0.32
+#    #   also, add a conditional dep:
+#    %if 0%{?sailfishos_version} >= 30400
+#    BuildRequires: some-package
+#    %endif
+#Patches:
+#  - 'baz'
+Requires:
+  - buteo-sync-plugins-social-github
+  - jolla-settings-accounts-extensions
+PkgBR:
+  - qt5-qttools-linguist
+  - qt5-qmake
+  - qml-rpm-macros
+  - sailfish-svg2png
+#PkgConfigBR:
+#    - ^^^
+Configure: none
+Builder: qmake5
+NoIconCache: true
+BuildArch: noarch
+#AutoSubPackages:
+#  - doc
+Files:
+  - '%{_datadir}/accounts/*/*'
+  - '%{_datadir}/themes/sailfish-default/meegotouch/*/icons/*.png'
+  - '%{_datadir}/icons/*/scalable/apps/*.svg'
+
