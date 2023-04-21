@@ -152,10 +152,12 @@ AccountCreationAgent {
                     "ClientId": keyProvider.storedKey("github", "", "client_id"),
                     "ClientSecret": keyProvider.storedKey("github", "", "client_secret")
                 }
+                console.debug("trying to set up:", JSON.stringify(sessionData))
                 prepareAccountCreation(root.accountProvider, "github-posts", sessionData)
             }
             onAccountCreated: {
                 root._handleAccountCreated(accountId, responseData)
+                console.debug("success:", accountId)
             }
             onAccountCreationError: {
                 root.accountCreationError(errorMessage)

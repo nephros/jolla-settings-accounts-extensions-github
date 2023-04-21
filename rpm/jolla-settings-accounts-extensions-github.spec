@@ -9,7 +9,7 @@ Name:       jolla-settings-accounts-extensions-github
 # << macros
 
 Summary:    Extension plugin for GitHub accounts
-Version:    0.1.2
+Version:    0.1.3
 Release:    0
 Group:      Applications
 License:    ASL 2.0
