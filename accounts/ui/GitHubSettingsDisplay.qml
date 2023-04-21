@@ -31,7 +31,7 @@ StandardAccountSettingsDisplay {
             otherServicesDisplay.serviceModel = otherServices
 
             // load the initial settings, using the first set of sync options as reference
-            var gitHubOptions = allSyncOptionsForService("github-posts")
+            var gitHubOptions = allSyncOptionsForService("github-notifications")
             for (var profileId in gitHubOptions) {
                 gitHubSchedule.syncOptions = gitHubOptions[profileId]
                 break
@@ -39,7 +39,6 @@ StandardAccountSettingsDisplay {
         }
     }
 
-    /*
     Column {
         id: syncServicesDisplay
         width: parent.width
@@ -48,7 +47,7 @@ StandardAccountSettingsDisplay {
             //: Options for data to be downloaded from a remote server
             //% "Download"
             text: qsTrId("settings-accounts-la-download_options")
-        }   
+        }
 
         Repeater {
             id: syncServicesRepeater
@@ -69,7 +68,6 @@ StandardAccountSettingsDisplay {
             }
         }
     }
-    */
 
     AccountServiceSettingsDisplay {
         id: otherServicesDisplay
