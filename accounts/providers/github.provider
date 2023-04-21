@@ -29,28 +29,7 @@
                     <setting name="Scope" type="as">["notifications"]</setting>
                     <setting name="RedirectUri">https://api.github.com/user</setting>
                     <setting name="ExternalBrowser">false</setting>
-                    <!--
-                    <setting name="Port">7234</setting>
-                    <setting name="RedirectUri">https://127.0.0.1</setting>
-                    <setting name="Port">7234</setting>
-                    -->
                 </group>
-                <!--
-                <group name="user_agent">
-                    <setting name="Host">github.com</setting>
-                    <setting name="AuthPath">/login/oauth/authorize</setting>
-                    <setting name="Scope" type="as">["notifications",]</setting>
-                </group>
-                <group name="web_server">
-                    <setting name="RequestEndpoint">https://github.com/login/oauth/request_token</setting>
-                    <setting name="TokenEndpoint">https://github.com/login/oauth/access_token</setting>
-                    <setting name="AuthorizationEndpoint">https://github.com/login/oauth/authorize</setting>
-                    <setting name="Scope" type="as">["notifications"]</setting>
-                    <setting name="ResponseType">code</setting>
-                    <setting name="RedirectUri">https://127.0.0.1:7234</setting>
-                    <setting name="ExternalBrowser">true</setting>
-                </group>
-                -->
             </group>
         </group>
     </template>
