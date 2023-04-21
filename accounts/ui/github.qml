@@ -137,7 +137,7 @@ AccountCreationAgent {
                     }
                 }
 
-                var url = "https://apis.live.net/v5.0/me?access_token=" + accessToken
+                var url = "https://api.github.com/user?access_token=" + accessToken
                 doc.open("GET", url)
                 doc.send()
             }
