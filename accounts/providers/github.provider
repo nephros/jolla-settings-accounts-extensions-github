@@ -26,8 +26,9 @@
                     <setting name="AuthPath">/login/oauth/authorize</setting>
                     <setting name="ResponseType">code</setting>
                     <setting name="TokenPath">/login/oauth/access_token</setting>
-                    <setting name="Scope" type="as">["notifications",]</setting>
-                    <setting name="RedirectUri">https://127.0.0.1:7234</setting>
+                    <setting name="Scope" type="as">["notifications"]</setting>
+                    <setting name="RedirectUri">https://127.0.0.1</setting>
+                    <setting name="Port">7234</setting>
                     <setting name="ExternalBrowser">true</setting>
                 </group>
                 <!--
