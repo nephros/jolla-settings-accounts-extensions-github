@@ -28,7 +28,7 @@ StandardAccountSettingsDisplay {
 
         onSettingsLoaded: {
             syncServicesRepeater.model = syncServices
-            otherServicesDisplay.serviceModel = otherServices
+            //otherServicesDisplay.serviceModel = otherServices
 
             // load the initial settings, using the first set of sync options as reference
             var gitHubOptions = allSyncOptionsForService("github-notifications")
@@ -44,9 +44,7 @@ StandardAccountSettingsDisplay {
         width: parent.width
 
         SectionHeader {
-            //: Options for data to be downloaded from a remote server
-            //% "Download"
-            text: qsTrId("settings-accounts-la-download_options")
+            text: qsTrId("settings-accounts-la-sync")
         }
 
         Repeater {
@@ -69,6 +67,7 @@ StandardAccountSettingsDisplay {
         }
     }
 
+    /*
     AccountServiceSettingsDisplay {
         id: otherServicesDisplay
         enabled: root.accountEnabled
@@ -81,4 +80,5 @@ StandardAccountSettingsDisplay {
             }
         }
     }
+    */
 }
