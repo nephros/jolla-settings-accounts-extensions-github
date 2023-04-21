@@ -142,10 +142,10 @@ AccountCreationAgent {
                 // deprecated, see https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/
                 //var url = "https://api.github.com/user?access_token=" + accessToken
                 var url = "https://api.github.com/user"
+                doc.open("GET", url)
                 doc.setRequestHeader('Accept', 'application/vnd.github+json');
                 doc.setRequestHeader('X-GitHub-Api-Version', '2022-11-28');
                 doc.setRequestHeader('Authorization', 'Bearer:' + accessToken);
-                doc.open("GET", url)
                 doc.send()
             }
         }
