@@ -6,7 +6,7 @@
     <provider>github</provider>
 
     <template>
-        <setting name="sync_profile_templates" type="as">["github.Posts"]</setting>
+        <setting name="sync_profile_templates" type="as">["github.Posts", "github.Notifications"]</setting>
         <group name="auth">
             <setting name="method">oauth2</setting>
             <setting name="mechanism">web_server</setting>
