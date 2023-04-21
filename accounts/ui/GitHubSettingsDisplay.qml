@@ -31,9 +31,9 @@ StandardAccountSettingsDisplay {
             otherServicesDisplay.serviceModel = otherServices
 
             // load the initial settings, using the first set of sync options as reference
-            var oneDriveOptions = allSyncOptionsForService("github-sharing")
-            for (var profileId in oneDriveOptions) {
-                oneDriveSchedule.syncOptions = oneDriveOptions[profileId]
+            var gitHubOptions = allSyncOptionsForService("github-posts")
+            for (var profileId in gitHubOptions) {
+                gitHubSchedule.syncOptions = gitHubOptions[profileId]
                 break
             }
         }
