@@ -100,7 +100,8 @@ AccountCreationAgent {
                         if (doc.status === 200) {
                             var user = JSON.parse(doc.responseText)
                             var name = user.name
-                            var userId = user.id
+                            var userId = user.login
+                            var avatar = user.avatar_url
 
                             if (userId == null) {
                                 // something went wrong, can't identify user
@@ -128,6 +129,7 @@ AccountCreationAgent {
                             newAccount.setConfigurationValue("", "default_credentials_username", name)
                             newAccount.setConfigurationValue("", "default_credentials_id", userId)
                             newAccount.displayName = name
+                            newAccount.iconPath = avatar
                             accountSetup.hasSetName = true
                             newAccount.sync()
                         } else {
@@ -137,7 +139,12 @@ AccountCreationAgent {
                     }
                 }
 
-                var url = "https://api.github.com/user?access_token=" + accessToken
+                // deprecated, see https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/
+                //var url = "https://api.github.com/user?access_token=" + accessToken
+                var url = "https://api.github.com/user"
+                doc.setRequestHeader('Accept', 'application/vnd.github+json');
+                doc.setRequestHeader('X-GitHub-Api-Version', '2022-11-28');
+                doc.setRequestHeader('Authorization', 'Bearer:' + accessToken);
                 doc.open("GET", url)
                 doc.send()
             }
@@ -153,11 +160,11 @@ AccountCreationAgent {
                     "ClientSecret": keyProvider.storedKey("github", "", "client_secret")
                 }
                 console.debug("trying to set up:", JSON.stringify(sessionData))
-                prepareAccountCreation(root.accountProvider, "github-notifications", sessionData)
+                prepareAccountCreation(root.accountProvider, "github-posts", sessionData)
             }
             onAccountCreated: {
                 root._handleAccountCreated(accountId, responseData)
-                console.debug("success:", accountId)
+                console.debug("success:", accountId, JSON.stringify(responseData,null,2))
             }
             onAccountCreationError: {
                 root.accountCreationError(errorMessage)
