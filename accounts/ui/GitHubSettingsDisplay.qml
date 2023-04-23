@@ -33,7 +33,7 @@ StandardAccountSettingsDisplay {
             // load the initial settings, using the first set of sync options as reference
             var gitHubOptions = allSyncOptionsForService("github-posts")
             for (var profileId in gitHubOptions) {
-                schedule.syncOptions = gitHubOptions[profileId]
+                profileSchedule.syncOptions = gitHubOptions[profileId]
                 break
             }
         }
@@ -81,4 +81,21 @@ StandardAccountSettingsDisplay {
         }
     }
     */
+
+    SyncScheduleOptions {
+        id: scheduleOptions
+        schedule: profileSchedule
+    }
+
+    Loader {
+        width: parent.width
+        active: profileSchedule.enabled && profileSchedule.peakScheduleEnabled
+
+        sourceComponent: Component {
+            PeakSyncOptions {
+                schedule: profileSchedule
+            }
+        }
+    }
+
 }
