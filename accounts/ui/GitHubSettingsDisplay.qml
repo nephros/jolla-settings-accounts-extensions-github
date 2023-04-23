@@ -31,9 +31,9 @@ StandardAccountSettingsDisplay {
             //otherServicesDisplay.serviceModel = otherServices
 
             // load the initial settings, using the first set of sync options as reference
-            var gitHubOptions = allSyncOptionsForService("github-posts")
-            for (var profileId in gitHubOptions) {
-                profileSchedule.syncOptions = gitHubOptions[profileId]
+            var postSyncOptions = allSyncOptionsForService("github-posts")
+            for (var profileId in postSyncOptions) {
+                notificationSchedule.syncOptions = postSyncOptions[profileId]
                 break
             }
         }
@@ -83,17 +83,18 @@ StandardAccountSettingsDisplay {
     */
 
     SyncScheduleOptions {
-        id: scheduleOptions
-        schedule: profileSchedule
+        id: notificationSchedule
+        property QtObject syncOptions
+        schedule: syncOptions ? syncOptions.schedule : null
     }
 
     Loader {
         width: parent.width
-        active: profileSchedule.enabled && profileSchedule.peakScheduleEnabled
+        active: notificationSchedule.syncOptions.schedule.enabled && notificationSchedule.syncOptions.schedule.peakScheduleEnabled
 
         sourceComponent: Component {
             PeakSyncOptions {
-                schedule: profileSchedule
+                schedule: notificationSchedule.syncOptions ? notificationSchedule.syncOptions.schedule : null
             }
         }
     }
